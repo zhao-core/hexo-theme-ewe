@@ -1,0 +1,36 @@
+$font-normal:  "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif !default;
+ 
+$font-opensans: "Open Sans", $font-normal !default;
+
+@mixin webfont ($family, $path, $filename, $type, $weight : false, $style : false) {
+  @font-face {
+      font-family: $family;
+      @if ($weight) {
+        font-weight: $weight;
+      }
+      @if ($style) {
+        font-style: $style;
+      }
+      src: url($path + '/' + $type + '/' + $filename + '-' + $type + '.eot');
+      src: url($path + '/' + $type + '/' + $filename + '-' + $type + '.eot?#iefix') format('embedded-opentype'),
+      url($path + '/' + $type + '/' + $filename + '-' + $type + '.woff') format('woff'),
+      url($path + '/' + $type + '/' + $filename + '-' + $type + '.ttf') format('truetype'),
+      url($path + '/' + $type + '/' + $filename + '-' + $type + '.svg#' + $filename + $type) format('svg');
+  }
+}
+
+//* Open Sans */
+$OpenSansFamily: 'Open Sans';
+$OpenSansFileName: 'OpenSans';
+$OpenSansPath: './fonts/opensans';
+
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'Light', 300, normal)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'LightItalic', 300, italic)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'Regular', 400, normal)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'Italic', 400, italic)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'Semibold', 600, normal)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'SemiboldItalic', 600, italic)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'Bold', 700, normal)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'BoldItalic', 700, italic)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'ExtraBold', 800, normal)
+@include webfont($OpenSansFamily, $OpenSansPath, $OpenSansFileName, 'ExtraBoldItalic', 800, italic)

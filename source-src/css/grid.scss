@@ -1,0 +1,58 @@
+
+@import "./core/variables";
+body, button, input, select, textarea {
+    color: $colorText;
+    font-family: "Open Sans","PingFang SC","Microsoft YaHei","Helvetica Neue","Hiragino Sans GB","WenQuanYi Micro Hei",Arial,sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+body {
+	overflow-y: hidden;
+	background:$colorBg;
+}
+html, body, #container {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#mobile-nav {
+	display: none;
+}
+#container{
+	position:relative;
+	min-height:100%;
+	.anm-canvas {
+		display: none;
+	}
+	&.show {
+		.anm-canvas {
+			display: block;
+			position: fixed;
+		}
+	}
+}
+.body-wrap{
+  margin-bottom: 80px;
+}
+.mid-col {
+	position:absolute;
+	right:0;
+	min-height:100%;
+	background:$colorBg;
+	left: 300px;
+	width: auto;
+	@extend %trans;
+	&.show {
+		background: none;
+		opacity: .9;
+		@extend %anmLeftIn;
+		.article {
+			@extend %trans;
+			background: rgba(255,255,255,.3);
+		}
+	}
+	&.hide {
+		@extend %anmLeftOut;
+	}
+}
